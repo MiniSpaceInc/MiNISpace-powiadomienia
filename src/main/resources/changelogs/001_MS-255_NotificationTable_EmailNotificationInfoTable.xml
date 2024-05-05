@@ -1,0 +1,38 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="table.email.notifications.info" author="Adrian Rudź">
+        <createTable tableName="EmailNotificationsInfo">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="email" type="varchar(255)"/>
+            <column name="date_created" type="datetime2(6)" defaultValueComputed="GETDATE()"/>
+            <column name="date_modified" type="datetime2(6)"/>
+            <column name="version" type="int"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="table.notifications" author="Adrian Rudź">
+        <createTable tableName="Notifications">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="email_info_id" type="int"/>
+            <column name="date_created" type="datetime2(6)" defaultValueComputed="GETDATE()"/>
+            <column name="date_modified" type="datetime2(6)"/>
+            <column name="version" type="int"/>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="Notifications"
+                baseColumnNames="email_info_id"
+                referencedTableName="EmailNotificationsInfo"
+                referencedColumnNames="id"
+                constraintName="FK_notifications_email_notifications_info"
+                onDelete="CASCADE"
+                onUpdate="CASCADE"/>
+    </changeSet>
+</databaseChangeLog>
