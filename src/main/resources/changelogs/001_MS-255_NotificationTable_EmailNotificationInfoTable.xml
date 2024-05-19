@@ -20,10 +20,13 @@
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false" />
             </column>
-            <column name="email_info_id" type="int"/>
             <column name="uuid" type="UNIQUEIDENTIFIER" defaultValueComputed="NEWID()">
                 <constraints nullable="false" unique="true"/>
             </column>
+            <column name="email_info_id" type="int"/>
+            <column name="title" type="varchar(255)"/>
+            <column name="type" type="varchar(255)"/>
+            <column name="content" type="varchar(5000)"/>
             <column name="date_created" type="datetime2(6)" defaultValueComputed="GETDATE()"/>
             <column name="date_modified" type="datetime2(6)"/>
             <column name="version" type="int"/>
