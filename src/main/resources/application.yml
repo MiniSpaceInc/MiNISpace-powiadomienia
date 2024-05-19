@@ -4,7 +4,7 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   datasource:
-    url: jdbc:sqlserver://localhost:1433;databaseName=Minispace;encrypt=true;trustServerCertificate=true
+    url: jdbc:sqlserver://localhost:1433;databaseName=Minispace_Powiadomienia;encrypt=true;trustServerCertificate=true
     username: sa
     password: reB@jKs*X9
   rabbitmq:
@@ -12,4 +12,18 @@ spring:
     password: guest
     host: localhost
     port: 5672
+    exchange:
+      notification: notifications
+    queue:
+      notification:
+        cmd: notification-cmd-queue
+        evt: notification-evt-queue
+    routing-key:
+      notification:
+        cmd: notification-cmd
+        evt: notification-evt
+  amqp:
+    deserialization:
+      trust:
+        all: true
 
