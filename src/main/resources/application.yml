@@ -20,7 +20,7 @@ spring:
         evt: notification-evt-queue
     routing-key:
       notification:
-        cmd: notification-cmd
+        cmd: notification-cmd-register
         evt: notification-evt
   amqp:
     deserialization:
