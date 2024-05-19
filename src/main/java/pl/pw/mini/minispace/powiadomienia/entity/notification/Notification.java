@@ -7,10 +7,12 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@Entity(name = "Notifications")
+@Entity
+@Table(name = "Notifications")
 @ToString
 public class Notification extends AbstractNotification {
 
+    @ToString.Exclude
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "email_info_id", referencedColumnName = "id")
     private EmailNotificationInfo emailInfo;

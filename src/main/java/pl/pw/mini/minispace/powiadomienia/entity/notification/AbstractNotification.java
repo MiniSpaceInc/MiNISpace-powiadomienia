@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import pl.pw.mini.minispace.powiadomienia.entity.BaseEntity;
 
 import java.util.UUID;
@@ -11,6 +12,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @MappedSuperclass
+@ToString
 public abstract class AbstractNotification extends BaseEntity {
 
     @Column
