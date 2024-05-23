@@ -11,8 +11,8 @@ public interface NotificationMapper {
 
     NotificationDto toDto(Notification notification);
 
-    @Mapping(source = "infoEmail", target = "emailInfo")
-    Notification fromDto(NotificationDto dto);
+//    @Mapping(source = "infoEmail", target = "emailInfo")
+//    Notification fromDto(NotificationDto dto);
 
     @Mapping(source = "infoEmail", target = "infoEmail")
     @Mapping(source = "uuid", target = "uuid")

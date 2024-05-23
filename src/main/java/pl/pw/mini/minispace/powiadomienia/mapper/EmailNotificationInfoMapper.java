@@ -7,7 +7,7 @@ import pl.pw.mini.minispace.powiadomienia.entity.notification.EmailNotificationI
 @Mapper(componentModel = "spring")
 public interface EmailNotificationInfoMapper {
 
-    InfoEmailDto toDto(EmailNotificationInfo emailNotificationInfo);
+//    InfoEmailDto toDto(EmailNotificationInfo emailNotificationInfo);
 
-    EmailNotificationInfo fromDto(InfoEmailDto dto);
+//    EmailNotificationInfo fromDto(InfoEmailDto dto);
 }

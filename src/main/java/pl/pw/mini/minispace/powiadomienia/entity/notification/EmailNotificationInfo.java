@@ -2,7 +2,8 @@ package pl.pw.mini.minispace.powiadomienia.entity.notification;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 import pl.pw.mini.minispace.powiadomienia.entity.BaseEntity;
@@ -12,7 +13,8 @@ import pl.pw.mini.minispace.powiadomienia.entity.BaseEntity;
 @Entity(name = "EmailNotificationsInfo")
 public class EmailNotificationInfo extends BaseEntity {
 
-    @OneToOne(mappedBy = "emailInfo")
+    @ManyToOne
+    @JoinColumn(name = "notification_id", nullable = false)
     private Notification notification;
 
     @Column

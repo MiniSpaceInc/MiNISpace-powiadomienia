@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -13,8 +15,7 @@ import lombok.ToString;
 public class Notification extends AbstractNotification {
 
     @ToString.Exclude
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "email_info_id", referencedColumnName = "id")
-    private EmailNotificationInfo emailInfo;
+    @OneToMany(mappedBy = "notification", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<EmailNotificationInfo> emailInfo;
 
 }

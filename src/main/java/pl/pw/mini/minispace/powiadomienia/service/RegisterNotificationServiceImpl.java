@@ -5,10 +5,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pl.pw.mini.minispace.powiadomienia.dto.NotificationDto;
 import pl.pw.mini.minispace.powiadomienia.dto.RegisterNotificationResponse;
+import pl.pw.mini.minispace.powiadomienia.entity.notification.EmailNotificationInfo;
 import pl.pw.mini.minispace.powiadomienia.entity.notification.Notification;
 import pl.pw.mini.minispace.powiadomienia.mapper.NotificationMapper;
 import pl.pw.mini.minispace.powiadomienia.repository.NotificationRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -33,12 +35,31 @@ public class RegisterNotificationServiceImpl implements RegisterNotificationServ
             return response;
         }
 
-        Notification notification = notificationMapper.fromDto(notificationDto);
+        Notification notification = buildNotification(notificationDto);
         log.info("Saving notification {}", notification);
         notificationRepository.save(notification);
 
         response.setMessage(SUCCESSFUL_REGISTER);
         response.setSuccess(Boolean.TRUE);
         return response;
+    }
+
+    private Notification buildNotification(NotificationDto notificationDto) {
+        Notification notification = new Notification();
+        notification.setUuid(notificationDto.getUuid());
+        notification.setContent(notificationDto.getContent());
+        notification.setType(notificationDto.getType());
+        notification.setTitle(notificationDto.getTitle());
+
+        List<EmailNotificationInfo> emails = notificationDto.getInfoEmail().getEmail().stream()
+                .map(email -> {
+                    EmailNotificationInfo emailInfo = new EmailNotificationInfo();
+                    emailInfo.setEmail(email);
+                    emailInfo.setNotification(notification);
+                    return emailInfo;
+                }).toList();
+
+        notification.setEmailInfo(emails);
+        return notification;
     }
 }

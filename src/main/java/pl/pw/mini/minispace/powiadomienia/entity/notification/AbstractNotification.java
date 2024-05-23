@@ -26,4 +26,7 @@ public abstract class AbstractNotification extends BaseEntity {
 
     @Column
     protected NotificationType type;
+
+    @Column
+    protected Boolean sent;
 }
