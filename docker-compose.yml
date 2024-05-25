@@ -1,0 +1,27 @@
+version: '3.3'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+  minispace-powiadomienia:
+    image: minispace-powiadomienia
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: minispace-powiadomienia-app
+    ports:
+      - "8081:8080"
+    restart: always
+    environment:
+      - SPRING_RABBITMQ_USERNAME=guest
+      - SPRING_RABBITMQ_PASSWORD=guest
+      - SPRING_RABBITMQ_HOST=localhost
+      - SPRING_RABBITMQ_PORT=5672
+    depends_on:
+      - rabbitmq
