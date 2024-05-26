@@ -1,0 +1,29 @@
+spring:
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=Minispace_Powiadomienia;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: reB@jKs*X9
+  rabbitmq:
+    username: guest
+    password: guest
+    host: localhost
+    port: 5672
+    exchange:
+      notification: notifications
+    queue:
+      notification:
+        cmd: notification-cmd-queue
+        evt: notification-evt-queue
+    routing-key:
+      notification:
+        cmd: notification-cmd-register
+        evt: notification-evt
+  amqp:
+    deserialization:
+      trust:
+        all: true
+
