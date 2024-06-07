@@ -1,5 +1,7 @@
 FROM openjdk:21-jdk
 EXPOSE 8081
+EXPOSE 5672
+EXPOSE 15672
 WORKDIR /app
 
 # Copy the JAR file directly to the container
