@@ -10,7 +10,7 @@ import pl.pw.mini.minispace.powiadomienia.entity.BaseEntity;
 
 @Getter
 @Setter
-@Entity(name = "emailNotificationsInfo")
+@Entity(name = "email_notifications_info")
 public class EmailNotificationInfo extends BaseEntity {
 
     @ManyToOne

@@ -22,7 +22,7 @@
     </changeSet>
 
 <changeSet id="table.notifications" author="Adrian Rudź">
-        <createTable tableName="emailNotificationsInfo">
+        <createTable tableName="email_notifications_info">
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false" />
             </column>
@@ -34,7 +34,7 @@
         </createTable>
 
         <addForeignKeyConstraint
-                baseTableName="emailNotificationsInfo"
+                baseTableName="email_notifications_info"
                 baseColumnNames="notification_id"
                 referencedTableName="notifications"
                 referencedColumnNames="id"
