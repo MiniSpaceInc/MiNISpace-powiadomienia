@@ -88,9 +88,9 @@
                 <version>4.25.1</version>
                 <configuration>
                     <changeLogFile>src/main/resources/masterChangelog.xml</changeLogFile>
-                    <url>jdbc:postgresql://localhost:5432/notifications</url>
-                    <username>postgres</username>
-                    <password>password</password>
+                    <url>${env.DB_HOST}</url>
+                    <username>${env.DB_USER}</username>
+                    <password>${env.DB_PASSWORD}</password>
                 </configuration>
             </plugin>
             <plugin>
