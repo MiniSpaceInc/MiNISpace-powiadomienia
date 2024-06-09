@@ -27,13 +27,3 @@ spring:
     deserialization:
       trust:
         all: true
-
-application:
-  smtp:
-    application:
-      name: MiniSpace
-      password: eblu ccyb btet uhjb
-    mail: minispaceorganization@gmail.com
-    password:
-  scheduler:
-    notifications: 0/10 * * * * *
