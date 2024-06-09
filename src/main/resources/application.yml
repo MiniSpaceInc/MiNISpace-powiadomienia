@@ -5,14 +5,14 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   datasource:
-    url: ${SPRING_DATASOURCE_URL_NOTIFICATIONS}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+    url: ${DB_HOST}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
   rabbitmq:
-    username: ${RABBITMQ_USERNAME}
-    password: ${RABBITMQ_PASSWORD}
-    host: ${RABBITMQ_HOST}
-    port: ${RABBITMQ_PORT}
+    username: ${MQ_USER}
+    password: ${MQ_PASSWORD}
+    host: ${MQ_HOST}
+    port: 5672
     exchange:
       notification: notifications
     queue:
