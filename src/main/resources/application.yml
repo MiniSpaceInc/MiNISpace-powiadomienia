@@ -27,3 +27,12 @@ spring:
     deserialization:
       trust:
         all: true
+
+application:
+  smtp:
+    application:
+      name: MiniSpace
+      password: ${SMTP_PASSWORD}
+    mail: ${SMTP_MAIL}
+  scheduler:
+    notifications: 0/10 * * * * *
