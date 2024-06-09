@@ -5,14 +5,14 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   datasource:
-    url: jdbc:postgresql://localhost:5432/notifications
-    username: postgres
-    password: password
+    url: ${SPRING_DATASOURCE_URL_NOTIFICATIONS}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
   rabbitmq:
-    username: guest
-    password: guest
-    host: localhost
-    port: 5672
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+    host: ${RABBITMQ_HOST}
+    port: ${RABBITMQ_PORT}
     exchange:
       notification: notifications
     queue:
