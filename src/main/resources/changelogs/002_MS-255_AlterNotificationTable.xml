@@ -4,7 +4,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
 
     <changeSet id="table.notifications" author="Adrian Rudź">
-        <addColumn tableName="Notifications">
+        <addColumn tableName="notifications">
             <column name="sent" type="bit"/>
         </addColumn>
     </changeSet>

@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "Notifications")
+@Table(name = "eotifications")
 @ToString
 public class Notification extends AbstractNotification {
 

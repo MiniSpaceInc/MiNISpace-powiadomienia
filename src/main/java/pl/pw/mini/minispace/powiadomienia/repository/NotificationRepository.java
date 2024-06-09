@@ -12,6 +12,6 @@ import java.util.UUID;
 public interface NotificationRepository extends JpaRepository<Notification, Long> {
     Optional<Notification> findByUuid(UUID uuid);
 
-    @Query(value = "SELECT TOP 1 * FROM Notifications n WHERE n.sent IS NULL ORDER BY ID", nativeQuery = true)
+    @Query(value = "SELECT * FROM notifications n WHERE n.sent IS NULL ORDER BY ID LIMIT 1", nativeQuery = true)
     Notification findNotificationToBeSent();
 }

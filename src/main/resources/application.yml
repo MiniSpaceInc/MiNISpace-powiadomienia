@@ -1,12 +1,13 @@
 spring:
   jpa:
     hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   datasource:
-    url: jdbc:sqlserver://localhost:1433;databaseName=Minispace_Powiadomienia;encrypt=true;trustServerCertificate=true
-    username: sa
-    password: reB@jKs*X9
+    url: jdbc:postgresql://localhost:5432/notifications
+    username: postgres
+    password: password
   rabbitmq:
     username: guest
     password: guest
@@ -27,3 +28,12 @@ spring:
       trust:
         all: true
 
+application:
+  smtp:
+    application:
+      name: MiniSpace
+      password: eblu ccyb btet uhjb
+    mail: minispaceorganization@gmail.com
+    password:
+  scheduler:
+    notifications: 0/10 * * * * *
