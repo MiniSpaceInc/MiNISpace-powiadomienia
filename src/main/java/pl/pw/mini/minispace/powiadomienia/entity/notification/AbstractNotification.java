@@ -1,6 +1,8 @@
 package pl.pw.mini.minispace.powiadomienia.entity.notification;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,6 +26,7 @@ public abstract class AbstractNotification extends BaseEntity {
     @Column
     protected String content;
 
+    @Enumerated(EnumType.STRING)
     @Column
     protected NotificationType type;
 
